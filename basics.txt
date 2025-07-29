@@ -46,4 +46,7 @@ const obj = {
     Built-in object in JS.
 */
 
-JSON.stringify(obj);
+JSON.stringify(obj);  // string
+
+JSON to JS obj: JSON.parse(JSON.stringify(obj));
+
