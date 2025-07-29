@@ -55,8 +55,13 @@ JSON to JS obj: JSON.parse(JSON.stringify(obj));
     Variables are volatile (page refresh all gone).
     So, we can store stuffs in localStorage.
     Only supports string store.
+    Built-in object in JS.
 */
 
 localStorage.setItem('message', 'some_string');
 localStorage.getItem('message');
 
+// js object in localStorage
+localStorage.setItem('score', JSON.stringify(score));
+
+JSON.parse(localStorage.getItem('score'));
