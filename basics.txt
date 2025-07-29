@@ -105,3 +105,10 @@ obj.method();
 
 clicks, keydowns => event
 onclick, onkeydown => event listeners
+
+// Type Coercion
+String(25)
+console.log('25' - 5); // 20
+
+DOCUMENT: object
+WINDOW: browser
