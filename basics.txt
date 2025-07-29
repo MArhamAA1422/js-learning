@@ -24,3 +24,5 @@ const obj = {
     prop2: val
 };
 
+obj.prop3 = val;  // new property
+delete obj.prop3;
