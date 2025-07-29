@@ -36,3 +36,14 @@ const obj = {
         //
     }
 };  // object, function all are values in JS
+
+/*
+    JSON:
+    JSON is Universal.
+    With less feature.
+    Doesn't support function.
+    Always double quote.
+    Built-in object in JS.
+*/
+
+JSON.stringify(obj);
