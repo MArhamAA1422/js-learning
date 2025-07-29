@@ -26,3 +26,13 @@ const obj = {
 
 obj.prop3 = val;  // new property
 delete obj.prop3;
+
+const obj = {
+    obj1: {
+        p1: v1;
+        p2: v2;
+    },
+    f: function fn() {
+        //
+    }
+};  // object, function all are values in JS
