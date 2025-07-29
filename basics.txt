@@ -13,3 +13,6 @@ document.body.innerHTML = 'hello';  // changing current web page
 
 Falsy Values: false 0 '' NaN undefined null
 
+Ternary operator: ?:
+Guard operator: &&  // short-circuits (false)
+Default operator: ||  // short-circuits (true)
