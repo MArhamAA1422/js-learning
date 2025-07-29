@@ -67,3 +67,6 @@ localStorage.setItem('score', JSON.stringify(score));
 JSON.parse(localStorage.getItem('score'));
 
 localStorage.removeItem('score');
+
+// Auto Boxing
+'hello'.length  // string, but works like obj (auto)
