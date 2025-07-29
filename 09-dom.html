@@ -2,21 +2,26 @@
 <html>
 
 <head>
-    <title>DOM</title>
+    <title>DOM Projects</title>
 </head>
 
 <body>
-    <button>
-        hello
-    </button>
-    <button class="js-button">
-        Second button
-    </button>
+    <p>
+        YouTube Subscribe Button
+    </p>
+
+    <button onclick="
+        const buttonElement = document.querySelector('.yt-subscribe-btn');
+
+        console.log(buttonElement.innerHTML);
+
+        if (buttonElement.innerHTML === 'Subscribe') {
+            buttonElement.innerHTML = 'Subscribed';
+        }
+    " class="yt-subscribe-btn">Subscribe</button>
 
     <script>
-        console.log(typeof document.querySelector('button').innerHTML);  // output: 'hello'
 
-        console.log(document.querySelector('.js-button'));
     </script>
 </body>
 
