@@ -19,3 +19,8 @@ Default operator: ||  // short-circuits (true)
 
 function fn(param1, param2) {}
 
+const obj = {
+    prop1: val,
+    prop2: val
+};
+
