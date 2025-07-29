@@ -16,3 +16,6 @@ Falsy Values: false 0 '' NaN undefined null
 Ternary operator: ?:
 Guard operator: &&  // short-circuits (false)
 Default operator: ||  // short-circuits (true)
+
+function fn(param1, param2) {}
+
