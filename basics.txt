@@ -73,6 +73,7 @@ localStorage.removeItem('score');
 
 const obj = {
     message: val;
+    price: p;
 }
-const { message } = obj;  // destructuring (shortcut)
+const { message, price } = obj;  // destructuring (shortcut)
 
