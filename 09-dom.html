@@ -9,9 +9,14 @@
     <button>
         hello
     </button>
+    <button class="js-button">
+        Second button
+    </button>
 
     <script>
         console.log(typeof document.querySelector('button').innerHTML);  // output: 'hello'
+
+        console.log(document.querySelector('.js-button'));
     </script>
 </body>
 
