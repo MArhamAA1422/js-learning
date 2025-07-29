@@ -50,3 +50,13 @@ JSON.stringify(obj);  // string
 
 JSON to JS obj: JSON.parse(JSON.stringify(obj));
 
+/*
+    localStorage:
+    Variables are volatile (page refresh all gone).
+    So, we can store stuffs in localStorage.
+    Only supports string store.
+*/
+
+localStorage.setItem('message', 'some_string');
+localStorage.getItem('message');
+
