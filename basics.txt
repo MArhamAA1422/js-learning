@@ -110,5 +110,5 @@ onclick, onkeydown => event listeners
 String(25)
 console.log('25' - 5); // 20
 
-DOCUMENT: object
-WINDOW: browser
+DOCUMENT: webpage
+WINDOW (obj): browser  // window.document === document
