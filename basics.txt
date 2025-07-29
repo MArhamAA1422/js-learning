@@ -16,7 +16,7 @@ alert('hello universe!');
 document.body.innerHTML = 'hello';  // changing current web page, always string
 
 // Void HTML
-document.querySelector('any-element').value;
+document.querySelector('any-element').value;  // string
 
 5 == '5.00'  // true
 5 === '5.00'  // false
@@ -102,3 +102,6 @@ const obj = {
 };
 console.log(obj);  // { same: 'text'}
 obj.method();
+
+clicks, keydowns => event
+onclick, onkeydown => event listeners
