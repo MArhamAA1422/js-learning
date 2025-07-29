@@ -70,3 +70,9 @@ localStorage.removeItem('score');
 
 // Auto Boxing
 'hello'.length  // string, but works like obj (auto)
+
+const obj = {
+    message: val;
+}
+const { message } = obj;  // destructuring (shortcut)
+
