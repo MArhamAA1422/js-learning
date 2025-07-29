@@ -8,3 +8,8 @@ alert('hello universe!');
 
 document.body.innerHTML = 'hello';  // changing current web page
 
+5 == '5.00'  // true
+5 === '5.00'  // false
+
+Falsy Values: false 0 '' NaN undefined null
+
