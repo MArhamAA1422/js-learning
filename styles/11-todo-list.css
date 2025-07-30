@@ -1,0 +1,9 @@
+body {
+    font-family: Arial;
+}
+
+.js-todo-list-item {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
