@@ -1,4 +1,5 @@
 const todoList = [];
+
 function addTodo() {
     const inputElement = document.querySelector('.js-todo-name');
     if (inputElement.value.length) todoList.push(inputElement.value);
