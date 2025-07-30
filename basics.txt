@@ -112,3 +112,11 @@ console.log('25' - 5); // 20
 
 DOCUMENT: webpage
 WINDOW (obj): browser  // window.document === document
+
+/* Array */
+const myArr = [1, 2, 3, 'hello', true, { name: 'name'}, [1, 2]];
+
+myArr.push(100);
+
+myArr.splice(idx, tot);  // delete total 'tot' elements starting at 'idx'
+
