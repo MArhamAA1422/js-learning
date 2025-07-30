@@ -30,7 +30,8 @@ function showTodoList() {
                 <div>
                     ${dueDate}
                 </div>
-                <button>
+                <button onclick="deleteTodoItem
+                (${i});">
                     Delete
                 </button>
             </div>
@@ -38,4 +39,9 @@ function showTodoList() {
     }
 
     todoListElement.innerHTML = allList;
+}
+
+function deleteTodoItem(id) {
+    todoList.splice(id, 1);
+    showTodoList();
 }
