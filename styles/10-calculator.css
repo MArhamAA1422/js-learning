@@ -1,0 +1,37 @@
+body {
+    font-family: Arial;
+    background-color: rgb(25, 25, 25);
+    color: white;
+}
+
+.result {
+    font-size: 40px;
+}
+
+.dig-dot-eq-clear-btn,
+.clear-btn {
+    background-color: #333333;
+    color: white;
+}
+
+.operators-btn {
+    background-color: #FEA00A;
+    color: white;
+}
+
+.dig-dot-eq-clear-btn,
+.operators-btn,
+.clear-btn {
+    color: white;
+    height: 55px;
+    width: 55px;
+    font-size: 30px;
+    border-radius: 40px;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.clear-btn {
+    font-size: 16px;
+}
