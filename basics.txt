@@ -169,3 +169,8 @@ setInterval(function(){
     }
     console.log(value);  // a c
 });
+
+const = arrowFunction = () => {
+    //
+};
+arrowFunction();
