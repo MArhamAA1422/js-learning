@@ -46,7 +46,13 @@ document.querySelector('.js-scissors-button').addEventListener('click', () => {
 });
 
 document.body.addEventListener('keydown', (event) => {
-    console.log(event.key);
+    if (event.key === 'r') {
+        updateScore('rock');
+    } else if (event.key === 'p') {
+        updateScore('paper');
+    } else if (event.key === 's') {
+        updateScore('scissors');
+    }
 });
 
 function updateScore(move) {
