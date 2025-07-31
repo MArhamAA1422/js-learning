@@ -137,6 +137,10 @@ run(function() { // callback function: function as argument
     //
 });
 
+/*
+    Asynchronous code: won't wait for a line to finish before going to the next line
+*/
 setTimeout(function(){
     //
 }, 3000);  // 3s
+console.log('next line');  // it come's first
