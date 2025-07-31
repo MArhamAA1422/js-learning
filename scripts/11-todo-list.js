@@ -23,18 +23,16 @@ function showTodoList() {
     for (let i = 0; i < todoList.length; i++) {
         const { name, dueDate } = todoList[i];
         allList += `
-            <div class='js-todo-list-item'>
-                <div>
-                    ${name}
-                </div>
-                <div>
-                    ${dueDate}
-                </div>
-                <button onclick="deleteTodoItem
-                (${i});">
-                    Delete
-                </button>
+            <div class="item-info">
+                ${name}
             </div>
+            <div class="item-info">
+                ${dueDate}
+            </div>
+            <button onclick="deleteTodoItem
+            (${i});" class="delete-button">
+                Delete
+            </button>
         `;
     }
 

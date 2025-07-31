@@ -2,8 +2,40 @@ body {
     font-family: Arial;
 }
 
-.js-todo-list-item {
-    display: flex;
-    justify-content: space-between;
-    width: 300px;
+.todo-input-grid,
+.todo-grid {
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+    column-gap: 10px;
+    row-gap: 10px;
+    align-items: center;
+}
+
+.todo-input-grid {
+    margin-bottom: 10px;
+}
+
+.js-todo-name,
+.js-todo-date {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.js-todo-name::placeholder {
+    font-size: 16px;
+}
+
+.add-button,
+.delete-button {
+    padding: 12px 30px;
+    color: white;
+    background-color: green;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    height: 45px;
+}
+
+.delete-button {
+    background-color: darkred;
 }
