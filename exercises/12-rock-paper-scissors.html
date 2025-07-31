@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Rock Paper Scissors
+    </title>
+    <link rel="stylesheet" href="../styles/12-rock-paper-scissors.css">
+</head>
+
+<body>
+    <p class="title">
+        Rock Paper Scissors
+    </p>
+
+    <button class="move-button" onclick="
+        updateScore('rock');
+    ">
+        <img class="move-emoji" src="../img/rock-emoji.png">
+    </button>
+
+    <button class="move-button" onclick="
+        updateScore('paper');
+    ">
+        <img class="move-emoji" src="../img/paper-emoji.png">
+    </button>
+
+    <button class="move-button" onclick="
+        updateScore('scissors');
+    ">
+        <img class="move-emoji" src="../img/scissors-emoji.png">
+    </button>
+
+    <p class="result">
+        <!-- Tie. -->
+    </p>
+
+    <p class="move-update inline-block-place">
+        <!-- You
+        <img src="../img/paper-emoji.png" class="move-emoji"> -->
+    </p>
+
+    <p class="computer-move-update inline-block-place">
+        <!-- <img src="../img/paper-emoji.png" class="move-emoji">
+        Computer -->
+    </p>
+
+    <p style="margin-top: 10px;" class="score">
+        Wins: 0, Losses: 0, Ties: 0
+    </p>
+
+    <button class="reset-score-button" onclick="resetScore();">
+        Reset Score
+    </button>
+
+    <button class="auto-play-button" onclick="autoPlay();">
+        Auto Play
+    </button>
+
+    <script src="../scripts/12-rock-paper-scissors.js"></script>
+</body>
+
+</html>
