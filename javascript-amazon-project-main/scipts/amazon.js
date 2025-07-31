@@ -47,7 +47,7 @@ products.forEach(product => {
             Added
             </div>
 
-            <button class="add-to-cart-button button-primary">
+            <button class="add-to-cart-button button-primary js-add-to-cart data-product-name="${name}">
             Add to Cart
             </button>
         </div>
@@ -55,3 +55,4 @@ products.forEach(product => {
 });
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
+
