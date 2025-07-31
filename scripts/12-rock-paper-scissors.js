@@ -33,6 +33,18 @@ function autoPlay() {
     }
 }
 
+document.querySelector('.js-rock-button').addEventListener('click', () => {
+    updateScore('rock');
+});
+
+document.querySelector('.js-paper-button').addEventListener('click', () => {
+    updateScore('paper');
+});
+
+document.querySelector('.js-scissors-button').addEventListener('click', () => {
+    updateScore('scissors');
+});
+
 function updateScore(move) {
     const computer = computerMove();
     // console.log(move, computer);
