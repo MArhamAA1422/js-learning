@@ -174,3 +174,9 @@ const = arrowFunction = () => {
     //
 };
 arrowFunction();
+
+const oneParam = param => {
+    //
+};
+
+const oneLine = () => 2 + 3;  // returns 5
