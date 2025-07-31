@@ -41,6 +41,8 @@ function showTodoList() {
         deleteButton.addEventListener('click', () => {
             todoList.splice(index, 1);
             showTodoList();
-        });
+        });  // index is always there, CLOSURE
     });
+
+    // console.log(index);  // error
 }
