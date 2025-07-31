@@ -23,7 +23,7 @@ let intervalId;
 
 function autoPlay() {
     if (!isAutoPlaying) {
-        intervalId = setInterval(function () {
+        intervalId = setInterval(() => {
             if (isAutoPlaying) updateScore(computerMove());
         }, 1000);
         isAutoPlaying = true;

@@ -20,7 +20,7 @@ function showTodoList() {
     const todoListElement = document.querySelector('.js-todo-list');
     let allList = '';
 
-    todoList.forEach(function (item, index) {
+    todoList.forEach((item, index) => {
         const { name, dueDate } = item;
         allList += `
             <div class="item-info">
