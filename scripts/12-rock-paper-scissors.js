@@ -18,9 +18,14 @@ function computerMove() {
     return 'scissors';
 }
 
+let isAutoPlaying = false;
+
 function autoPlay() {
-    setInterval(function() {
-        updateScore(computerMove());
+    if (isAutoPlaying) isAutoPlaying = false;
+    else isAutoPlaying = true;
+    setInterval(function () {
+        if (isAutoPlaying) updateScore(computerMove()); else return;
+        console.log('hello from here');
     }, 1000);
 }
 
