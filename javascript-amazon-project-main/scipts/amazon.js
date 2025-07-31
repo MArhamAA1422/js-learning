@@ -25,8 +25,8 @@ products.forEach(product => {
                 $${(priceCents / 100).toFixed(2)}
             </div>
 
-            <div class="product-quantity-container">
-            <select>
+            <div>
+            <select class="product-quantity-container js-quantity-selector-${product.id}">
                 <option selected value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -42,9 +42,9 @@ products.forEach(product => {
 
             <div class="product-spacer"></div>
 
-            <div class="added-to-cart">
-            <img src="images/icons/checkmark.png">
-            Added
+            <div class="added-to-cart js-added-to-cart">
+                <img src="images/icons/checkmark.png">
+                Added
             </div>
 
             <button class="add-to-cart-button button-primary js-add-to-cart" data-product-id="${product.id}">
@@ -68,12 +68,14 @@ document.querySelectorAll('.js-add-to-cart').forEach(button => {
             }
         });
 
+        let selectedAmount = Number(document.querySelector(`.js-quantity-selector-${productId}`).value);
+
         if (matchingItem) {
-            matchingItem.quantity++;
+            matchingItem.quantity += selectedAmount;
         } else {
             cart.push({
                 productId,
-                quantity: 1
+                quantity: selectedAmount
             });
         }
 
