@@ -1,6 +1,6 @@
 let productsHTML = '';
 
-products.forEach((product) => {
+products.forEach(product => {
     const { image, name, rating, priceCents
     } = product;
     const { stars, count } = rating;
