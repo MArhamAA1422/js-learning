@@ -128,4 +128,12 @@ const function1 = function() {
     console.log('hello');
 };
 
-console.log(function1);  // function is value
+console.log(function1());  // function is value
+
+function run(param) {
+    param();
+}
+run(function() {
+    //
+});
+
