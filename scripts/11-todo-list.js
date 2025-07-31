@@ -20,8 +20,8 @@ function showTodoList() {
     const todoListElement = document.querySelector('.js-todo-list');
     let allList = '';
 
-    for (let i = 0; i < todoList.length; i++) {
-        const { name, dueDate } = todoList[i];
+    todoList.forEach(function (item, index) {
+        const { name, dueDate } = item;
         allList += `
             <div class="item-info">
                 ${name}
@@ -30,11 +30,11 @@ function showTodoList() {
                 ${dueDate}
             </div>
             <button onclick="deleteTodoItem
-            (${i});" class="delete-button">
+            (${index});" class="delete-button">
                 Delete
             </button>
         `;
-    }
+    });
 
     todoListElement.innerHTML = allList;
 }
