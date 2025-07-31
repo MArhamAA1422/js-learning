@@ -133,7 +133,10 @@ console.log(function1());  // function is value
 function run(param) {
     param();
 }
-run(function() {
+run(function() { // callback function: function as argument
     //
 });
 
+setTimeout(function(){
+    //
+}, 3000);  // 3s
