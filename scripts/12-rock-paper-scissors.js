@@ -19,14 +19,18 @@ function computerMove() {
 }
 
 let isAutoPlaying = false;
+let intervalId;
 
 function autoPlay() {
-    if (isAutoPlaying) isAutoPlaying = false;
-    else isAutoPlaying = true;
-    setInterval(function () {
-        if (isAutoPlaying) updateScore(computerMove()); else return;
-        console.log('hello from here');
-    }, 1000);
+    if (!isAutoPlaying) {
+        intervalId = setInterval(function () {
+            if (isAutoPlaying) updateScore(computerMove());
+        }, 1000);
+        isAutoPlaying = true;
+    } else {
+        clearInterval(intervalId);
+        isAutoPlaying = false;
+    }
 }
 
 function updateScore(move) {
