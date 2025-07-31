@@ -45,6 +45,10 @@ document.querySelector('.js-scissors-button').addEventListener('click', () => {
     updateScore('scissors');
 });
 
+document.body.addEventListener('keydown', (event) => {
+    console.log(event.key);
+});
+
 function updateScore(move) {
     const computer = computerMove();
     // console.log(move, computer);
