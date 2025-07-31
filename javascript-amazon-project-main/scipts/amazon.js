@@ -87,5 +87,9 @@ document.querySelectorAll('.js-add-to-cart').forEach(button => {
         document.querySelector('.js-cart-quantity').innerHTML = `${cartQuantity}`;
 
         document.querySelector(`.js-added-to-cart-${productId}`).classList.add('show-added-to-cart');
+
+        setTimeout(() => {
+            document.querySelector(`.js-added-to-cart-${productId}`).classList.remove('show-added-to-cart');
+        }, 2000);
     });
 });
