@@ -74,7 +74,7 @@ localStorage.getItem('message');
 // js object in localStorage
 localStorage.setItem('score', JSON.stringify(score));
 
-JSON.parse(localStorage.getItem('score'));
+obj = JSON.parse(localStorage.getItem('score'));
 
 localStorage.removeItem('score');
 
@@ -157,4 +157,15 @@ setInterval(function(){
     'c'
 ].forEach(function(value){
     console.log(value);  // a b c
+});
+
+[
+    'a',
+    'b',
+    'c'
+].forEach(function(value, index){
+    if (value === 'b') {
+        return;  // same as continue
+    }
+    console.log(value);  // a c
 });
