@@ -120,3 +120,6 @@ myArr.push(100);
 
 myArr.splice(idx, tot);  // delete total 'tot' elements starting at 'idx'
 
+const arr2 = arr1.slice();  // making a copy instead of referencing
+
+const [firstVal, secondVal] = [1, 2, 3];  // element from array
