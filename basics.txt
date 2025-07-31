@@ -198,3 +198,7 @@ buttonElement.addEventListener('click', () => {
 });
 
 buttonElement.removeEventListener('click', eventListener);
+
+[1, -3, 5].filter((value, index) => {
+    return value >= 0;
+});  // [1, 5]
