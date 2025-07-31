@@ -180,3 +180,21 @@ const oneParam = param => {
 };
 
 const oneLine = () => 2 + 3;  // returns 5
+
+/*
+    Event listeners
+    Same as onclick
+    Can run multiple events on same element
+    Has delete option
+*/
+
+const eventListener = () => {
+    console.log('click');
+};
+
+buttonElement.addEventListener('click', eventListener);
+buttonElement.addEventListener('click', () => {
+    console.log('click2');
+});
+
+buttonElement.removeEventListener('click', eventListener);
