@@ -29,17 +29,18 @@ function showTodoList() {
             <div class="item-info">
                 ${dueDate}
             </div>
-            <button onclick="deleteTodoItem
-            (${index});" class="delete-button">
+            <button class="delete-button js-delete-button">
                 Delete
             </button>
         `;
     });
 
     todoListElement.innerHTML = allList;
-}
 
-function deleteTodoItem(id) {
-    todoList.splice(id, 1);
-    showTodoList();
+    document.querySelectorAll('.js-delete-button').forEach((deleteButton, index) => {
+        deleteButton.addEventListener('click', () => {
+            todoList.splice(index, 1);
+            showTodoList();
+        });
+    });
 }
