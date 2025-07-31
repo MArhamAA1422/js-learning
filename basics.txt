@@ -150,3 +150,11 @@ console.log('next line');  // it come's first
 setInterval(function(){
     //
 }, 3000);  // keep running a function in the future: in every 3s
+
+[
+    'a',
+    'b',
+    'c'
+].forEach(function(value){
+    console.log(value);  // a b c
+});
