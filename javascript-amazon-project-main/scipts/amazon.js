@@ -103,7 +103,5 @@ document.querySelectorAll('.js-add-to-cart').forEach(button => {
         }, 2000);
 
         currentTimeoutIdList[productId] = currentTimeoutId;
-
-        console.log(currentTimeoutIdList);
     });
 });

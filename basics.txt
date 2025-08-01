@@ -220,3 +220,5 @@ buttonElement.removeEventListener('click', eventListener);
 - is just another HTML Attribute
 - allows us to attach any info to an element
 - starts with 'data' (in html class)
+
+closure = if a function has access to a value/variable, it will always have access to that value/variable
