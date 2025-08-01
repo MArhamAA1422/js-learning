@@ -1,8 +1,14 @@
-import { cart, removeFromCart } from '../data/cart.js';
+import { cart, removeFromCart, countCartQuantity } from '../data/cart.js';
 import { products } from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 
 let cartSummary = '';
+
+function showCartQuantityInHeader() {
+    document.querySelector('.js-return-to-home-link').innerHTML = `${countCartQuantity()}`;
+}
+
+showCartQuantityInHeader();
 
 cart.forEach(cartItem => {
     const productId = cartItem.productId;
@@ -96,5 +102,7 @@ document.querySelectorAll('.js-delete-link').forEach((link) => {
 
         const container = document.querySelector(`.js-cart-item-container-${productId}`);
         container.remove();
+
+        showCartQuantityInHeader();
     });
 });
