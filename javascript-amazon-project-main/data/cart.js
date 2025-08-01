@@ -42,3 +42,13 @@ export function addToCart(productId) {
 
     currentTimeoutIdList[productId] = currentTimeoutId;
 }
+
+export function removeFromCart(productId) {
+    let deleteCart;
+    cart.forEach((cartItem) => {
+        if (cartItem.id === productId) {
+            deleteCart = cartItem;
+        }
+    });
+    cart.splice(deleteCart, 1);
+}
