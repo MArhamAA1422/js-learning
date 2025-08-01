@@ -147,10 +147,12 @@ run(function() { // callback function: function as argument
     
     Synchronous code: line by line
 */
-setTimeout(function(){
+let id = setTimeout(function(){
     //
 }, 3000);  // 3s
 console.log('next line');  // it come's first
+
+clearTimeOut(id);
 
 setInterval(function(){
     //
