@@ -1,11 +1,11 @@
-import { cart, removeFromCart, countCartQuantity } from '../data/cart.js';
+import { cart, removeFromCart, calculateCartQuantity } from '../data/cart.js';
 import { products } from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 
 let cartSummary = '';
 
 function updateCartQuantity() {
-    document.querySelector('.js-return-to-home-link').innerHTML = `${countCartQuantity()}`;
+    document.querySelector('.js-return-to-home-link').innerHTML = `${calculateCartQuantity()}`;
 }
 
 updateCartQuantity();

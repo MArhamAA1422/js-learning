@@ -8,8 +8,7 @@ if (!cart) cart = [{
     quantity: 1
     }];
 
-export function countCartQuantity() {
-    console.log(cart);
+export function calculateCartQuantity() {
     let cartQuantity = 0;
     cart.forEach(cartItem => {
         cartQuantity += cartItem.quantity;
