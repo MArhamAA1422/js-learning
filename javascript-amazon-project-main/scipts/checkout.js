@@ -4,11 +4,11 @@ import { formatCurrency } from './utils/money.js';
 
 let cartSummary = '';
 
-function showCartQuantityInHeader() {
+function updateCartQuantity() {
     document.querySelector('.js-return-to-home-link').innerHTML = `${countCartQuantity()}`;
 }
 
-showCartQuantityInHeader();
+updateCartQuantity();
 
 cart.forEach(cartItem => {
     const productId = cartItem.productId;
@@ -103,6 +103,6 @@ document.querySelectorAll('.js-delete-link').forEach((link) => {
         const container = document.querySelector(`.js-cart-item-container-${productId}`);
         container.remove();
 
-        showCartQuantityInHeader();
+        updateCartQuantity();
     });
 });
