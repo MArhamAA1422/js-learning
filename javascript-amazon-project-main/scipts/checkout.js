@@ -85,4 +85,4 @@ cart.forEach(cartItem => {
     `
 });
 
-console.log(cartSummary);
+document.querySelector('.js-order-summary').innerHTML = cartSummary;
