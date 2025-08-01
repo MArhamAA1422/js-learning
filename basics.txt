@@ -222,3 +222,10 @@ buttonElement.removeEventListener('click', eventListener);
 - starts with 'data' (in html class)
 
 closure = if a function has access to a value/variable, it will always have access to that value/variable
+
+Modules = better way to organize codes
+/*
+    works with live server
+    helps us avoid naming conflict
+    don't have to worry about order of files
+*/
