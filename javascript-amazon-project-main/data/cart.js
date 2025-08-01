@@ -1,4 +1,6 @@
-export const cart = [{
+export let cart = JSON.parse(localStorage.getItem('cart'));
+
+if (!cart) cart = [{
     productId: 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
     quantity: 1
 }, {
@@ -7,6 +9,10 @@ export const cart = [{
 }];
 
 let currentTimeoutIdList = {};
+
+function saveToStorage() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
 
 export function addToCart(productId) {
     let matchingItem;
@@ -41,6 +47,8 @@ export function addToCart(productId) {
     }, 2000);
 
     currentTimeoutIdList[productId] = currentTimeoutId;
+
+    saveToStorage();
 }
 
 export function removeFromCart(productId) {
@@ -51,4 +59,6 @@ export function removeFromCart(productId) {
         }
     });
     cart.splice(deleteCart, 1);
+
+    saveToStorage();
 }
