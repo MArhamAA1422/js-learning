@@ -223,3 +223,7 @@
 .is-editing-quantity .save-quantity-link {
   display: initial;
 }
+
+.is-editing-quantity .remove-quantity-label {
+  display: none;
+}
