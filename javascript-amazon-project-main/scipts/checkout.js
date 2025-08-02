@@ -43,7 +43,7 @@ cart.forEach(cartItem => {
                 <span class="update-quantity-link link-primary js-update-quantity-link" data-product-id="${matchingProduct.id}">
                   Update
                 </span>
-                <input class="quantity-input js-quantity-input-${matchingProduct.id}">
+                <input class="quantity-input js-quantity-input js-quantity-input-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
                 <span class="save-quantity-link link-primary js-save-quantity" data-product-id="${matchingProduct.id}">Save</span>
                 <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
                   Delete
@@ -125,9 +125,36 @@ document.querySelectorAll('.js-save-quantity').forEach((link) => {
 
         let newQuantity = Number(document.querySelector(`.js-quantity-input-${productId}`).value);
 
+        if (newQuantity < 0 || newQuantity >= 1000) {
+            alert('Invalid quantity, it must be between 0 and 999.');
+            return;
+        }
+
         updateQuantity(productId, newQuantity);
         updateCartQuantity();
 
         document.querySelector(`.js-quantity-label-${productId}`).innerHTML = `${newQuantity}`;
+    });
+});
+
+document.querySelectorAll('.js-quantity-input').forEach(link => {
+    link.addEventListener('keydown', (event) => {
+        const productId = link.dataset.productId;
+        if (event.key === 'Enter') {
+            let newQuantity = Number(document.querySelector(`.js-quantity-input-${productId}`).value);
+            // console.log(newQuantity);
+
+            document.querySelector(`.js-cart-item-container-${productId}`).classList.remove('is-editing-quantity');
+
+            if (newQuantity < 0 || newQuantity >= 1000) {
+                alert('Invalid quantity, it must be between 0 and 999.');
+                return;
+            }
+
+            updateQuantity(productId, newQuantity);
+            updateCartQuantity();
+
+            document.querySelector(`.js-quantity-label-${productId}`).innerHTML = `${newQuantity}`;
+        }
     });
 });

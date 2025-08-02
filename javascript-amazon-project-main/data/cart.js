@@ -74,10 +74,6 @@ export function removeFromCart(productId) {
 }
 
 export function updateQuantity(productId, newQuantity) {
-    if (newQuantity < 0 || newQuantity >= 1000) {
-        alert('Invalid quantity, it should be >= 0 and < 1000.');
-        return;
-    }
     cart.forEach((cartItem) => {
         if (cartItem.productId === productId) {
             cartItem.quantity = newQuantity;
