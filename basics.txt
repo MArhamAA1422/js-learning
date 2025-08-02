@@ -248,3 +248,5 @@ MVC = makes sure the page always matches the data
 /* TESTING */
     1. Manual Testing = Open the website and try out the code
     2. Automated Testing = using code to test code
+    
+    3. Group of related tests = test suite
