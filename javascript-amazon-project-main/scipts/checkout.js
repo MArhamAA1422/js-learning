@@ -4,7 +4,9 @@ import { formatCurrency } from './utils/money.js';
 
 let cartSummary = '';
 
-console.log(dayjs());
+const today = dayjs();
+const deliveryDate = today.add(7, 'days');
+console.log(deliveryDate);
 
 function updateCartQuantity() {
     document.querySelector('.js-return-to-home-link').innerHTML = `${calculateCartQuantity()}`;
