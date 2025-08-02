@@ -1,4 +1,4 @@
-import { cart, removeFromCart, calculateCartQuantity } from '../data/cart.js';
+import { cart, removeFromCart, calculateCartQuantity, updateQuantity } from '../data/cart.js';
 import { products } from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 
@@ -38,13 +38,13 @@ cart.forEach(cartItem => {
               </div>
               <div class="product-quantity">
                 <span>
-                  Quantity: <span class="quantity-label remove-quantity-label">${cartItem.quantity}</span>
+                  Quantity: <span class="quantity-label remove-quantity-label js-quantity-label-${matchingProduct.id}">${cartItem.quantity}</span>
                 </span>
                 <span class="update-quantity-link link-primary js-update-quantity-link" data-product-id="${matchingProduct.id}">
                   Update
                 </span>
                 <input class="quantity-input js-quantity-input-${matchingProduct.id}">
-                <span class="save-quantity-link link-primary" data-product-id="${matchingProduct.id}">Save</span>
+                <span class="save-quantity-link link-primary js-save-quantity" data-product-id="${matchingProduct.id}">Save</span>
                 <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${matchingProduct.id}">
                   Delete
                 </span>
@@ -117,13 +117,17 @@ document.querySelectorAll('.js-update-quantity-link').forEach((link) => {
     });
 });
 
-document.querySelectorAll('.save-quantity-link').forEach((link) => {
+document.querySelectorAll('.js-save-quantity').forEach((link) => {
     link.addEventListener('click', () => {
         const productId = link.dataset.productId;
 
         document.querySelector(`.js-cart-item-container-${productId}`).classList.remove('is-editing-quantity');
 
         let newQuantity = Number(document.querySelector(`.js-quantity-input-${productId}`).value);
-        console.log(newQuantity);
+
+        updateQuantity(productId, newQuantity);
+        updateCartQuantity();
+
+        document.querySelector(`.js-quantity-label-${productId}`).innerHTML = `${newQuantity}`;
     });
 });
