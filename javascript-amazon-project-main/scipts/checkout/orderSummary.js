@@ -124,12 +124,9 @@ export function renderOrderSummary() {
             const productId = link.dataset.productId;
 
             removeFromCart(productId);
-
-            const container = document.querySelector(`.js-cart-item-container-${productId}`);
-            container.remove();
-
             updateCartQuantity();
-
+            
+            renderOrderSummary();
             renderPaymentSummary();
         });
     });
@@ -160,7 +157,8 @@ export function renderOrderSummary() {
             updateQuantity(productId, newQuantity);
             updateCartQuantity();
 
-            document.querySelector(`.js-quantity-label-${productId}`).innerHTML = `${newQuantity}`;
+            renderOrderSummary();
+            renderPaymentSummary();
         });
     });
 
@@ -181,7 +179,8 @@ export function renderOrderSummary() {
                 updateQuantity(productId, newQuantity);
                 updateCartQuantity();
 
-                document.querySelector(`.js-quantity-label-${productId}`).innerHTML = `${newQuantity}`;
+                renderOrderSummary();
+                renderPaymentSummary();
             }
         });
     });
