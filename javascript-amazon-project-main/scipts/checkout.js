@@ -6,7 +6,7 @@ let cartSummary = '';
 
 const today = dayjs();
 const deliveryDate = today.add(7, 'days');
-console.log(deliveryDate);
+console.log(deliveryDate.format('dddd, MMMM D'));
 
 function updateCartQuantity() {
     document.querySelector('.js-return-to-home-link').innerHTML = `${calculateCartQuantity()}`;
