@@ -1,3 +1,5 @@
+import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+
 export const deliveryOptions = [{
     id: '1',
     deliveryDays: 7,
@@ -22,4 +24,38 @@ export function getDeliveryOption(deliveryOptionId) {
     });
 
     return deliveryOption || deliveryOptions[0];
+}
+
+export function calculateDeliveryDate(deliveryOption) {
+    const today = dayjs();
+        
+    const deliveryDate = today.add(
+        deliveryOption.deliveryDays, 'days'
+    );
+    
+    let dateString = deliveryDate.format(
+        'dddd, MMMM D'
+    );
+
+    if (dateString[0] === 'F') {
+        const deliveryDate = today.add(
+            deliveryOption.deliveryDays+2, 'days'
+        );
+        
+        dateString = deliveryDate.format(
+            'dddd, MMMM D'
+        );
+    }
+
+    if (dateString[0] === 'S' && dateString[1] === 'a') {
+        const deliveryDate = today.add(
+            deliveryOption.deliveryDays+1, 'days'
+        );
+        
+        dateString = deliveryDate.format(
+            'dddd, MMMM D'
+        );
+    }
+
+    return dateString;
 }
