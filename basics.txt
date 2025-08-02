@@ -233,3 +233,14 @@ Modules = better way to organize codes
 /* ESM Version: EcmaScript */
 
 export default some_stuff;  // default export/import, at a time one thing from one file
+
+/* MVC (design patter), many JS frameworks are based on MVC */
+
+update the data + regenerate all the HTML = MVC
+
+Split our code into 3 parts:
+    1. Model: saves and manages the data
+    2. View: takes the data and displays it on the page
+    3. controller: runs some code when we interact with the page (update)
+
+MVC = makes sure the page always matches the data
