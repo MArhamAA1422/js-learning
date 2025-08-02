@@ -244,3 +244,7 @@ Split our code into 3 parts:
     3. controller: runs some code when we interact with the page (update)
 
 MVC = makes sure the page always matches the data
+
+/* TESTING */
+    1. Manual Testing = Open the website and try out the code
+    2. Automated Testing = using code to test code
