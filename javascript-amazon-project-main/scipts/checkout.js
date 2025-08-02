@@ -57,14 +57,14 @@ cart.forEach(cartItem => {
               <div class="delivery-options-title">
                 Choose a delivery option:
               </div>
-              ${deliveryOptionsHTML(matchingProduct)}
+              ${deliveryOptionsHTML(matchingProduct, cartItem)}
             </div>
           </div>
         </div>
     `
 });
 
-function deliveryOptionsHTML(matchingProduct) {
+function deliveryOptionsHTML(matchingProduct, cartItem) {
     let html = '';
 
     deliveryOptions.forEach(deliveryOption => {
@@ -81,10 +81,16 @@ function deliveryOptionsHTML(matchingProduct) {
         const priceString = deliveryOption.priceCents === 0
             ? 'FREE'
             : `$${formatCurrency(deliveryOption.priceCents)}`;
+        
+        const isChecked = deliveryOption.id === cartItem.deliveryOptionId;
+
+        console.log(deliveryOption.id, cartItem.deliveryOptionId);
             
         html += `
         <div class="delivery-option">
-            <input type="radio" class="delivery-option-input" name="delivery-option-${matchingProduct.id}">
+            <input type="radio"
+            ${isChecked ? 'checked' : ''}
+            class="delivery-option-input" name="delivery-option-${matchingProduct.id}">
             <div>
                 <div class="delivery-option-date">
                     ${dateString}
@@ -128,6 +134,8 @@ document.querySelectorAll('.js-save-quantity').forEach((link) => {
         const productId = link.dataset.productId;
 
         document.querySelector(`.js-cart-item-container-${productId}`).classList.remove('is-editing-quantity');
+
+        if (document.querySelector(`.js-quantity-input-${productId}`).value.length === 0) return;
 
         let newQuantity = Number(document.querySelector(`.js-quantity-input-${productId}`).value);
 
