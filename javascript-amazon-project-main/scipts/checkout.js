@@ -4,6 +4,8 @@ import { formatCurrency } from './utils/money.js';
 
 let cartSummary = '';
 
+console.log(dayjs());
+
 function updateCartQuantity() {
     document.querySelector('.js-return-to-home-link').innerHTML = `${calculateCartQuantity()}`;
 }
