@@ -250,3 +250,7 @@ MVC = makes sure the page always matches the data
     2. Automated Testing = using code to test code
     
     3. Group of related tests = test suite
+
+    4. Flaky Test = test that sometimes passes and sometimes fails
+    5. Mocks = let us replace a method with a fake version
+    
