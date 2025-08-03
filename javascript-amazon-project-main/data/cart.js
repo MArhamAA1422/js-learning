@@ -66,7 +66,7 @@ export function addToCart(productId) {
 
     // currentTimeoutIdList[productId] = currentTimeoutId;
 
-    // saveToStorage();
+    saveToStorage();
 }
 
 export function removeFromCart(productId) {
