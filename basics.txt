@@ -275,3 +275,4 @@ localStorage.clear();  // in browser (if any issue)
 
 8. class = object generator
 9. constructor(param) {}
+10. #property  // private
