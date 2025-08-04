@@ -261,4 +261,10 @@ MVC = makes sure the page always matches the data
     9. Hooks = lets us run some code for each test
     10. Hooks in Jasmine: beforeEach(), beforeAll(), afterEach(), afterAll()
 
-localStorage.clear();  // in browser (if any issue)    
+localStorage.clear();  // in browser (if any issue)
+
+/* OOP */
+1. another way of programming, another way to write code
+2. organizing our code into objects
+3. tries to represent the real world
+4. easy to create multiple objects
