@@ -1,5 +1,5 @@
 import { renderOrderSummary } from '../../scripts/checkout/orderSummary.js';
-import { loadFromStorage } from '../../data/cart.js';
+import { loadFromStorage, cart } from '../../data/cart.js';
 
 describe('test suite: renderOrderSummary', () => {
     it('displays the cart', () => {
@@ -38,9 +38,13 @@ describe('test suite: renderOrderSummary', () => {
         expect(
             document.querySelector(`.js-product-quantity-${productId2}`).textContent
         ).toContain('Quantity: 1');
+
+        document.querySelector('.js-test-container').innerHTML = '';
     });
 
     it('remove a product', () => {
+        spyOn(localStorage, 'setItem');
+
         document.querySelector('.js-test-container').innerHTML = `
             <div class="js-order-summary"></div>
             <div class="js-checkout-header"></div>
@@ -71,5 +75,21 @@ describe('test suite: renderOrderSummary', () => {
         expect(
             document.querySelectorAll('.js-cart-item-container').length
         ).toEqual(1);
+
+        expect(
+            document.querySelector(`.js-cart-item-container-${productId1}`)
+        ).toEqual(null);
+
+        expect(
+            document.querySelector(`.js-cart-item-container-${productId2}`)
+        ).not.toEqual(null);
+
+        expect(
+            cart.length
+        ).toEqual(1);
+
+        expect(cart[0].productId).toEqual(productId2);
+
+        document.querySelector('.js-test-container').innerHTML = '';
     });
 });
