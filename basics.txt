@@ -255,3 +255,7 @@ MVC = makes sure the page always matches the data
     5. Mocks = let us replace a method with a fake version
     6. A mock only lats for one item
     
+    7. Unit Tests = testing 1 piece of the code (maybe a function at a time)
+    8. Integration Tests = tests many units/pieces of code working together
+
+localStorage.clear();  // in browser (if any issue)    
