@@ -269,3 +269,9 @@ localStorage.clear();  // in browser (if any issue)
 3. tries to represent the real world
 4. easy to create multiple objects
 5. use PascalCase for things that generate objects
+
+6. we can use functions to generate objects
+7. better way: class
+
+8. class = object generator
+9. constructor(param) {}
