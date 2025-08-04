@@ -325,3 +325,5 @@ export default some_stuff;  // default export/import, at a time one thing from o
     - #property  // private
 
 - __Inheritance__: lets use reuse code between classes
+
+- __Polymorphism__: use a method without knowing the class
