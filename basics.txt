@@ -258,4 +258,7 @@ MVC = makes sure the page always matches the data
     7. Unit Tests = testing 1 piece of the code (maybe a function at a time)
     8. Integration Tests = tests many units/pieces of code working together
 
+    9. Hooks = lets us run some code for each test
+    10. Hooks in Jasmine: beforeEach(), beforeAll(), afterEach(), afterAll()
+
 localStorage.clear();  // in browser (if any issue)    
