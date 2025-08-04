@@ -327,3 +327,31 @@ export default some_stuff;  // default export/import, at a time one thing from o
 - __Inheritance__: lets use reuse code between classes
 
 - __Polymorphism__: use a method without knowing the class
+
+- __this__
+```js
+// inside a function, we can change "this" to whatever we want (using call())
+
+function logThis() {
+    console.log(this);  // normally 'undefined'
+}
+
+logThis.call('hello');  // prints 'hello'
+```
+```js
+// Arrow functions do not change the value of "this"
+
+const obj = {
+    method() {
+        console.log(this);  // object
+
+        [1, 2, 3].forEach(() => {
+            console.log(this);  // regular function: undefined ('this' is changed), but arrow function: outer "this", object
+        });
+
+        [1, 2, 3].forEach(function() {
+            console.log(this);  // undefined
+        });
+    }
+}
+```
