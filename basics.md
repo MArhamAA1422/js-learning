@@ -311,6 +311,15 @@ export default some_stuff;  // default export/import, at a time one thing from o
 -  __Hooks__ lets us run some code for each test
     - Hooks in Jasmine: `beforeEach(), beforeAll(), afterEach(), afterAll()`
 
+    - beforeAll Hook, done() function
+    ```js
+    beforeAll(done => {
+        loadProducts(() => {
+            done();  // after load continue
+        });  // load from backend, rest of the code should wait (normally don't)
+    });
+    ```
+
 ## OOP
 - another way of programming, another way to write code
 - organizing our code into objects
