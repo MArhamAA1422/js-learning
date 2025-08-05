@@ -369,7 +369,7 @@ const obj = {
 -  __Unit Tests__ testing 1 piece of the code (maybe a function at a time)
 -  __Integration Tests__ testing many units/pieces of code working together
 
--  __Hooks__ lets us run some code for each test
+-  __Hooks__ let us run some code for each test
     - Hooks in Jasmine: `beforeEach(), beforeAll(), afterEach(), afterAll()`
 
     - beforeAll Hook, done() function
@@ -407,7 +407,7 @@ new Promise((resolve) => {
 - if we have lots of callbacks, our code will become more and more nested:
 ```js
 loadProducts(() => {  // callback
-    loadCart(() => {
+    loadCart(() => {  // callback
         renderCheckoutHeader();
         renderOrderSummary();
         renderPaymentSummary();
@@ -429,6 +429,7 @@ new Promise((resolve) => {
 ```
 
 - (another feature) We can run multiple promises at the same time: Promise.all()
+    - wait for all of them to finish
 ```js
 Promise.all([
     new Promise((resolve) => {
