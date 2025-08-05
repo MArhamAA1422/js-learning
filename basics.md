@@ -355,3 +355,5 @@ const obj = {
     }
 }
 ```
+
+### Procedural Programming is simpler in JavaScript

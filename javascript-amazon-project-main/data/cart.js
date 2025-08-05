@@ -1,6 +1,6 @@
 export let cart;
 
-loadFromStorage();
+loadFromStorage();  // Hoisting
 
 export function loadFromStorage() {
     cart = JSON.parse(localStorage.getItem('cart'));

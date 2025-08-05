@@ -1,15 +1,13 @@
-import { cart, addToCart, calculateCartQuantity } from '../data/cart.js';
+import { addToCart, calculateCartQuantity } from '../data/cart.js';
 import { products } from '../data/products.js';
-import { formatCurrency } from './utils/money.js';
 
 let productsHTML = '';
 
 updateCartQuantity();
 
 products.forEach(product => {
-    const { image, name, rating, priceCents
-    } = product;
-    const { stars, count } = rating;
+    const { image, name, rating } = product;
+    const { count } = rating;
     productsHTML += `
         <div class="product-container">
             <div class="product-image-container">
