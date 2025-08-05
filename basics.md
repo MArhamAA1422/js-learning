@@ -416,3 +416,36 @@ loadProducts(() => {  // callback
 ```
 
 - Promises let us flatten our code
+```js
+// A feature of promise
+new Promise((resolve) => {
+    loadProducts(() => {
+        resolve('some value');
+    });
+}).then((value) => {
+    console.log(value);  // 'some value'
+    // other codes
+});
+```
+
+- (another feature) We can run multiple promises at the same time: Promise.all()
+```js
+Promise.all([
+    new Promise((resolve) => {
+        loadProducts(() => {
+            resolve();
+        });
+
+    }),
+    new Promise(resolve => {
+        loadCart(() => {
+            resolve();
+        });
+    })
+
+]).then((valuesFromResolves) => {
+    renderCheckoutHeader();
+    renderOrderSummary();
+    renderPaymentSummary();
+});
+```

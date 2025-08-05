@@ -6,19 +6,20 @@ import { loadCart } from '../data/cart.js';
 // import '../data/cart-class.js';
 // import '../data/backend-practice.js'
 
-new Promise((resolve) => {
-    loadProducts(() => {
-        resolve();
-    });
+Promise.all([
+    new Promise((resolve) => {
+        loadProducts(() => {
+            resolve();
+        });
 
-}).then(() => {
-    return new Promise(resolve => {
+    }),
+    new Promise(resolve => {
         loadCart(() => {
             resolve();
         });
-    });
-    
-}).then(() => {
+    })
+
+]).then((valuesFromResolves) => {
     renderCheckoutHeader();
     renderOrderSummary();
     renderPaymentSummary();
