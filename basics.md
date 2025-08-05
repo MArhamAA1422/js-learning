@@ -360,8 +360,14 @@ const obj = {
 
 ## Backend
 - another computer that manages the data of a website
+- response type: text, JSON, HTML, image
+- using the browser = making a GET request
 
 ### Status Code
 - starts with 4 or 5 = failed
     - 4: our problem
     - 5: backend's problem
+
+### Backend API
+- List of URL paths
+- interface: how we interact with something
