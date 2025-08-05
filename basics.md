@@ -357,3 +357,6 @@ const obj = {
 ```
 
 ### Procedural Programming is simpler in JavaScript
+
+## Backend
+- another computer that manages the data of a website
