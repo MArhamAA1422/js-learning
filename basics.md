@@ -296,30 +296,6 @@ export default some_stuff;  // default export/import, at a time one thing from o
 - __View:__ takes the data and displays it on the page
 - __Controller__: runs some code when we interact with the page (update)
 
-## TESTING
--  __Manual Testing__ Open the website and try out the code
--  __Automated Testing__ using code to test code
-- Test suite: Group of related tests
-
--  Flaky Test: test that sometimes passes and sometimes fails
--  Mocks: let us replace a method with a fake version
-    -  A mock only lasts for one item
-
--  __Unit Tests__ testing 1 piece of the code (maybe a function at a time)
--  __Integration Tests__ testing many units/pieces of code working together
-
--  __Hooks__ lets us run some code for each test
-    - Hooks in Jasmine: `beforeEach(), beforeAll(), afterEach(), afterAll()`
-
-    - beforeAll Hook, done() function
-    ```js
-    beforeAll(done => {
-        loadProducts(() => {
-            done();  // after load continue
-        });  // load from backend, rest of the code should wait (normally don't)
-    });
-    ```
-
 ## OOP
 - another way of programming, another way to write code
 - organizing our code into objects
@@ -380,3 +356,63 @@ const obj = {
 ### Backend API
 - List of URL paths
 - interface: how we interact with something
+
+## TESTING
+-  __Manual Testing__ Open the website and try out the code
+-  __Automated Testing__ using code to test code
+- Test suite: Group of related tests
+
+-  Flaky Test: test that sometimes passes and sometimes fails
+-  Mocks: let us replace a method with a fake version
+    -  A mock only lasts for one item
+
+-  __Unit Tests__ testing 1 piece of the code (maybe a function at a time)
+-  __Integration Tests__ testing many units/pieces of code working together
+
+-  __Hooks__ lets us run some code for each test
+    - Hooks in Jasmine: `beforeEach(), beforeAll(), afterEach(), afterAll()`
+
+    - beforeAll Hook, done() function
+    ```js
+    beforeAll(done => {
+        loadProducts(() => {
+            done();  // after load continue
+        });  // load from backend, rest of the code should wait (normally don't)
+    });
+    ```
+## Promises
+- better way to handle asynchronous code
+- similar to done() function
+- let us wait for some code to finish, before going to the next step
+- create separate thread, run parallel
+
+```js
+new Promise(() => {  // it's going to run this function immediately
+    console.log('promise');
+});
+
+// resolve is a function
+// similar to done()
+// lets us control when to go the next step
+new Promise((resolve) => {
+    console.log('starts promise')
+    loadProducts(() => {
+        console.log('finished loading');
+        resolve();
+    });
+}).then(() => {
+    console.log('next step');
+});
+```
+- if we have lots of callbacks, our code will become more and more nested:
+```js
+loadProducts(() => {  // callback
+    loadCart(() => {
+        renderCheckoutHeader();
+        renderOrderSummary();
+        renderPaymentSummary();
+    });
+});
+```
+
+- Promises let us flatten our code
