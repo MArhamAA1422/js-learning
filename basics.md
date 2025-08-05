@@ -97,7 +97,7 @@ function run(param) {
     param();
 }
 
-// callback function: function as parameter
+// callback function: function as parameter, a function to run in the future
 
 run(function() {
     //
