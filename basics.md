@@ -527,3 +527,6 @@ async function load() {
     });
 }
 ```
+
+## Error Handling
+- when we're sending HTTP request we could get unexpected errors.
