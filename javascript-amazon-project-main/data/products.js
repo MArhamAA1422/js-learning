@@ -77,29 +77,29 @@ export let products = [];
 
 export function loadProductsFetch() {
   const promise = fetch(
-    'https://supersimplebackend.dev/products').then((response) => {
+    'https://error.supersimplebackend.dev/products').then((response) => {
       return response.json();  // also a promise
       
-  }).then((productsData) => {
-    products = productsData.map((productDetails) => {
-      if (productDetails.type === 'clothing') {
-        return new Clothing(productDetails);
-      }
+    }).then((productsData) => {
+      products = productsData.map((productDetails) => {
+        if (productDetails.type === 'clothing') {
+          return new Clothing(productDetails);
+        }
 
-      if (productDetails.type === 'appliances') {
-        return new Appliance(productDetails);
-      }
+        if (productDetails.type === 'appliances') {
+          return new Appliance(productDetails);
+        }
 
-      return new Product(productDetails);
+        return new Product(productDetails);
 
-    });
+      });
 
-    // console.log(products);
-    console.log('load products');
+      // console.log(products);
+      console.log('load products');
 
-  }).catch((error) => {
+    });/*.catch((error) => {
     console.log(`Unexpected error. Please try again later.`);
-  });
+  });*/
 
   return promise;
 }
