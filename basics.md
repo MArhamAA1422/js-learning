@@ -83,6 +83,8 @@ console.log('25' - 5); // 20, string to Number
 
 #### WINDOW (object) points browser  `window.document === document`
 
+#### window.location.href = "file-name.html";  // change the URL path
+
 ## Functions
 ```js
 function fn(param1, param2) {}
@@ -358,29 +360,6 @@ const obj = {
 - List of URL paths
 - interface: how we interact with something
 
-## TESTING
--  __Manual Testing__ Open the website and try out the code
--  __Automated Testing__ using code to test code
-- Test suite: Group of related tests
-
--  Flaky Test: test that sometimes passes and sometimes fails
--  Mocks: let us replace a method with a fake version
-    -  A mock only lasts for one item
-
--  __Unit Tests__ testing 1 piece of the code (maybe a function at a time)
--  __Integration Tests__ testing many units/pieces of code working together
-
--  __Hooks__ let us run some code for each test
-    - Hooks in Jasmine: `beforeEach(), beforeAll(), afterEach(), afterAll()`
-
-    - beforeAll Hook, done() function
-    ```js
-    beforeAll(done => {
-        loadProducts(() => {
-            done();  // after load continue
-        });  // load from backend, rest of the code should wait (normally don't)
-    });
-    ```
 ## Promises
 - better way to handle asynchronous code
 - similar to done() function
@@ -562,3 +541,27 @@ new Promise((resolve, reject) => {
     });
 });
 ```
+
+## TESTING
+-  __Manual Testing__ Open the website and try out the code
+-  __Automated Testing__ using code to test code
+- Test suite: Group of related tests
+
+-  Flaky Test: test that sometimes passes and sometimes fails
+-  Mocks: let us replace a method with a fake version
+    -  A mock only lasts for one item
+
+-  __Unit Tests__ testing 1 piece of the code (maybe a function at a time)
+-  __Integration Tests__ testing many units/pieces of code working together
+
+-  __Hooks__ let us run some code for each test
+    - Hooks in Jasmine: `beforeEach(), beforeAll(), afterEach(), afterAll()`
+
+    - beforeAll Hook, done() function
+    ```js
+    beforeAll(done => {
+        loadProducts(() => {
+            done();  // after load continue
+        });  // load from backend, rest of the code should wait (normally don't)
+    });
+    ```
