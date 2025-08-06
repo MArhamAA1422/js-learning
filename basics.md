@@ -431,6 +431,7 @@ new Promise((resolve) => {
 - (another feature) We can run multiple promises at the same time: Promise.all()
     - wait for all of them to finish
 ```js
+// Array of promises
 Promise.all([
     new Promise((resolve) => {
         loadProducts(() => {
@@ -448,5 +449,22 @@ Promise.all([
     renderCheckoutHeader();
     renderOrderSummary();
     renderPaymentSummary();
+});
+```
+
+## fetch()
+- better way to make HTTP requests
+- fetch uses a promise instead of callback
+
+```js
+// default request type: GET
+fetch('https://supersimplebackend.dev/products').then((response) => {
+    console.log(response);
+});
+
+fetch('https://supersimplebackend.dev/products').then((response) => {
+    return response.json();  // also a promise
+}).then((productsData) => {
+    console.log(productsData);
 });
 ```
