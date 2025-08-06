@@ -12,12 +12,6 @@ async function loadPage() {
             loadProductsFetch(),
             loadCartFetch()
         ]);
-
-        // await new Promise(resolve => {
-        //     loadCart(() => {
-        //         resolve();
-        //     });
-        // });
         
     } catch (error) {
         console.log(`Unexpected error. Please try again later.`);
