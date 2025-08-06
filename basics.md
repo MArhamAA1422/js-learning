@@ -530,3 +530,33 @@ async function load() {
 
 ## Error Handling
 - when we're sending HTTP request we could get unexpected errors.
+
+```js
+xhr.addEventListener('error', (error) => {
+    console.log(`Unexpected error. Please try again later.`);
+});
+```
+
+### try/catch
+- it's meant to handle unexpected errors, (code is correct, outside our control)
+- so, we don't use try/catch everywhere
+
+```js
+try {
+    throw `error1`;  // manual error creation
+    
+    // these codes will be ignored due to error1
+} catch(error) {
+    console.log(error);
+}
+```
+
+- manual error in promise
+```js
+// reject: it lets us create an error in the future
+new Promise((resolve, reject) => {
+    loadCart(() => {
+        reject('error');
+    });
+});
+```
