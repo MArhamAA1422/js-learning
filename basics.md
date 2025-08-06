@@ -468,3 +468,62 @@ fetch('https://supersimplebackend.dev/products').then((response) => {
     console.log(productsData);
 });
 ```
+
+## Async Await
+- even better way to handle asynchronous code
+- a shortcut for promises
+- async = makes a function return a promise
+
+```js
+async function loadPage() {
+    console.log('load page');
+}
+// same as
+function loadPage() {
+    return new Promise((resolve) => {
+        console.log('load page');
+        resolve();
+    });
+}
+```
+```js
+async function loadPage() {
+    console.log('load page');
+    return 'some value';
+}
+
+loadPage().then((value) => {
+    console.log('next step');
+    console.log(value);  // 'some value'
+});
+```
+
+- async let us use `await`
+- await lets us wait for a promise to finish, before going to the next line
+- await lets us write asynchronous code like normal code
+- async await can only be used with promises
+
+```js
+async function loadPage() {
+    await loadProductsFetch();
+
+    await new Promise(resolve => {
+        loadCart(() => {
+            resolve();
+        });
+    });
+
+    renderCheckoutHeader();
+    renderOrderSummary();
+    renderPaymentSummary();
+}
+```
+```js
+async function load() {
+    const someValue = await new Promise((resolve) => {
+        loadSome(() => {
+            resolve('some value');
+        });
+    });
+}
+```
