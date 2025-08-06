@@ -124,7 +124,8 @@ const oneLine = () => 2 + 3;  // returns 5
 ```js
 const myArr = [1, 2, 3, 'hello', true, { name: 'name'}, [1, 2]];
 
-myArr.push(100);
+myArr.push(100);  // insert back
+myArr.unshift(100);  // insert front
 
 myArr.splice(idx, tot);  // delete total 'tot' elements starting at 'idx'
 
@@ -540,6 +541,7 @@ xhr.addEventListener('error', (error) => {
 ### try/catch
 - it's meant to handle unexpected errors, (code is correct, outside our control)
 - so, we don't use try/catch everywhere
+- error handling in `async await` needs try/catch
 
 ```js
 try {
