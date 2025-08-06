@@ -491,7 +491,7 @@ loadPage().then((value) => {
 ```
 
 - async let us use `await`
-- await lets us wait for a promise to finish, before going to the next line
+- await lets us __wait for a promise to finish__, before going to the next line
 - await lets us write asynchronous code like normal code
 - async await can only be used with promises
 
