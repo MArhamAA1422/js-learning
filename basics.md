@@ -83,8 +83,6 @@ console.log('25' - 5); // 20, string to Number
 
 #### WINDOW (object) points browser  `window.document === document`
 
-#### window.location.href = "file-name.html";  // change the URL path
-
 ## Functions
 ```js
 function fn(param1, param2) {}
@@ -359,6 +357,20 @@ const obj = {
 ### Backend API
 - List of URL paths
 - interface: how we interact with something
+
+### window.location.href = "file-name.html";
+- change the URL path
+
+## URL Parameters
+- let us save data directly in the URL
+- also, known as __search parameters__
+- ?orderId=123
+- more params: ?orderId=123&productId=456
+
+```js
+const url = new URL(window.location.href);
+console.log(url.searchParams.get('orderId'));
+```
 
 ## Promises
 - better way to handle asynchronous code
