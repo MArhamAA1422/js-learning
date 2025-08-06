@@ -111,11 +111,17 @@ export function loadCart(fun) {
 
   xhr.addEventListener('load', () => {
     // console.log(xhr.response);
-    console.log('load cart');
+      console.log('load cart');
 
     fun();
   });
 
   xhr.open('GET', 'https://supersimplebackend.dev/cart');
   xhr.send();
+}
+
+export async function loadCartFetch() {
+    fetch('https://supersimplebackend.dev/cart').then(response => {
+        console.log('load cart');
+    });
 }
