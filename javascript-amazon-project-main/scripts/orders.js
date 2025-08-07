@@ -1,6 +1,7 @@
 import { orders } from "../data/orders.js";
 import { products, getProduct, loadProductsFetch } from "../data/products.js";
-import { calculateCartQuantity, updateDeliveryOption } from "../data/cart.js";
+import { calculateCartQuantity, addToCartFromOrdersPage } from "../data/cart.js";
+import { formatCurrency } from "./utils/money.js";
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -28,7 +29,7 @@ function renderOrders() {
                 </div>
                 <div class="order-total">
                 <div class="order-header-label">Total:</div>
-                <div>$${orderItem.totalCostCents}</div>
+                <div>$${formatCurrency(orderItem.totalCostCents)}</div>
                 </div>
             </div>
 
@@ -58,7 +59,7 @@ function renderOrders() {
                     <div class="product-quantity">
                     Quantity: ${product.quantity}
                     </div>
-                    <button class="buy-again-button button-primary">
+                    <button class="buy-again-button button-primary js-buy-again-button-${product.productId}" data-product-id="${product.productId}">
                     <img class="buy-again-icon" src="images/icons/buy-again.png">
                     <span class="buy-again-message">Buy it again</span>
                     </button>
@@ -83,6 +84,15 @@ function renderOrders() {
     });
 
     document.querySelector('.js-orders-grid').innerHTML = html;
+
+    document.querySelectorAll('.buy-again-button')
+        .forEach(button => {
+            button.addEventListener('click', () => {
+                const productId = button.dataset.productId;
+                addToCartFromOrdersPage(productId);
+                updateCartQuantity();
+            });
+        });
 }
 
 function updateCartQuantity() {

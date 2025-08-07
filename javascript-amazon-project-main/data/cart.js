@@ -30,7 +30,12 @@ function saveToStorage() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-export function addToCart(productId) {
+export function clearCart() {
+    cart.splice(0, cart.length);
+    saveToStorage();
+}
+
+function getItem(productId) {
     let matchingItem;
 
     cart.forEach(item => {
@@ -38,6 +43,12 @@ export function addToCart(productId) {
             matchingItem = item;
         }
     });
+
+    return matchingItem;
+}
+
+export function addToCart(productId) {
+    let matchingItem = getItem(productId);
 
     let selectedAmount = Number(document.querySelector(`.js-quantity-selector-${productId}`).value);
 
@@ -62,6 +73,39 @@ export function addToCart(productId) {
     let currentTimeoutId = setTimeout(() => {
         document.querySelector(`.js-added-to-cart-${productId}`).classList.remove('show-added-to-cart');
     }, 2000);
+
+    currentTimeoutIdList[productId] = currentTimeoutId;
+
+    saveToStorage();
+}
+
+export function addToCartFromOrdersPage(productId) {
+    const matchingItem = getItem(productId);
+    if (matchingItem) {
+        matchingItem.quantity += 1;
+    } else {
+        cart.push({
+            productId,
+            quantity: 1,
+            deliveryOptionId: '1'
+        });
+    }
+
+    const buttonElement = document.querySelector(`.js-buy-again-button-${productId}`);
+
+    buttonElement.innerHTML = `
+    <span class="buy-again-message">&#10003; Added</span>`;
+
+    const previousTimeoutId = currentTimeoutIdList[productId];
+
+    if (previousTimeoutId) {
+        clearTimeout(previousTimeoutId);
+    }
+
+    const currentTimeoutId = setTimeout(() => {
+        buttonElement.innerHTML = `<img class="buy-again-icon" src="images/icons/buy-again.png">
+        <span class="buy-again-message">Buy it again</span>`;
+    }, 1000);
 
     currentTimeoutIdList[productId] = currentTimeoutId;
 
