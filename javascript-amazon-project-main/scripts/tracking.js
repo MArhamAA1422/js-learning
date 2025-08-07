@@ -49,7 +49,12 @@ function renderTrackingOrder() {
     const productItemInOrder = getProductInfo(productId, orderItem);
     const productItem = getProductItem(productId);
 
-    const date = dayjs(productItemInOrder.estimatedDeliveryTime).format('dddd, MMMM DD');
+    const date = dayjs(productItemInOrder.estimatedDeliveryTime).format('dddd, MMMM D');
+
+    const today = dayjs();
+    const orderTime = dayjs(orderItem.orderTime);
+    const deliveryTime = dayjs(productItemInOrder.estimatedDeliveryTime);
+    const percentageProgress = ((orderTime - today) / (deliveryTime - orderTime)) * 100;
 
     let html = `
       <a class="back-to-orders-link link-primary" href="orders.html">
@@ -71,23 +76,31 @@ function renderTrackingOrder() {
       <img class="product-image" src=${productItem.image}>
 
       <div class="progress-labels-container">
-        <div class="progress-label current-status">
+        <div class="progress-label js-progress-label-preparing">
           Preparing
         </div>
-        <div class="progress-label">
+        <div class="progress-label js-progress-label-shipped">
           Shipped
         </div>
-        <div class="progress-label">
+        <div class="progress-label js-progress-label-delivered">
           Delivered
         </div>
       </div>
 
       <div class="progress-bar-container">
-        <div class="progress-bar"></div>
+        <div class="progress-bar" style="width: ${percentageProgress}%;"></div>
       </div>
     `;
 
     document.querySelector('.js-order-tracking').innerHTML = html;
+
+    if (percentageProgress < 50) {
+        document.querySelector('.js-progress-label-preparing').classList.add('current-status');
+    } else if (percentageProgress < 100) {
+        document.querySelector('.js-progress-label-shipped').classList.add('current-status');
+    } else {
+        document.querySelector('.js-progress-label-delivered').classList.add('current-status');
+    }
 }
 
 document.querySelector('.js-cart-quantity').innerHTML = `${calculateCartQuantity()}`;
