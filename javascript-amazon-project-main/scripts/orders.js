@@ -5,7 +5,7 @@ import { formatCurrency } from "./utils/money.js";
 
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-console.log(orders);
+// console.log(orders);
 loadPage();
 
 async function loadPage() {
@@ -66,8 +66,8 @@ function renderOrders() {
                 </div>
 
                 <div class="product-actions">
-                    <a href="tracking.html?orderId=123&productId=456">
-                    <button class="track-package-button button-secondary">
+                    <!-- <a href="tracking.html?orderId=123&productId=456"> -->
+                    <button class="track-package-button button-secondary js-track-button" data-order-id="${orderItem.id}" data-product-id="${product.productId}">
                         Track package
                     </button>
                     </a>
@@ -91,6 +91,16 @@ function renderOrders() {
                 const productId = button.dataset.productId;
                 addToCartFromOrdersPage(productId);
                 updateCartQuantity();
+            });
+        });
+    
+    document.querySelectorAll('.js-track-button')
+        .forEach(button => {
+            button.addEventListener('click', () => {
+                const orderId = button.dataset.orderId;
+                const productId = button.dataset.productId;
+                // console.log(orderId, productId);
+                window.location.href = `tracking.html?orderId=${orderId}&productId=${productId}`;
             });
         });
 }
