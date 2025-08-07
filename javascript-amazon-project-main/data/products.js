@@ -81,6 +81,25 @@ export function loadProductsFetch() {
       return response.json();  // also a promise
       
     }).then((productsData) => {
+      productsData = productsData.filter((productDetails) => {
+        if (productDetails.id === '5968897c-4d27-4872-89f6-5bcb052746d7') {
+          // console.log('here');
+          return false;
+        }
+
+        if (productDetails.id === 'b0f17cc5-8b40-4ca5-9142-b61fe3d98c85') {
+          // console.log('here');
+          return false;
+        }
+
+        if (productDetails.id === 'a45cfa0a-66d6-4dc7-9475-e2b01595f7d7') {
+          // console.log('here');
+          return false;
+        }
+        
+        return true;
+      });
+
       products = productsData.map((productDetails) => {
         if (productDetails.type === 'clothing') {
           return new Clothing(productDetails);
