@@ -159,17 +159,18 @@ const [firstVal, secondVal] = [1, 2, 3];  // element from array
 ## filter(), map()
 - filter: removes elements
 - map: some conditions on elements
+- returns updated content
 
 ```js
-[1, -3, 5].filter((value, index) => {
+newArr = [1, -3, 5].filter((value, index) => {
     return value >= 0;
 });  // [1, 5]
 
-[1, 1, 3].map((value, index) => {
+newArr = [1, 1, 3].map((value, index) => {
     return value*2;
 });  // [2, 2, 6]
 
-[1, 1, 3].map(value => value*2);  // oneParam, oneLine
+newArr = [1, 1, 3].map(value => value*2);  // oneParam, oneLine
 ```
 
 ## Objects

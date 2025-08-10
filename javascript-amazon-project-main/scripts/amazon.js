@@ -4,6 +4,7 @@ import { products, loadProducts, loadProductsFetch } from '../data/products.js';
 async function loadPage() {
     await loadProductsFetch();
     renderProductsGrid();
+    processSearch();
 }
 
 loadPage();
@@ -11,12 +12,21 @@ loadPage();
 // loadProducts(renderProductsGrid);  // callback
 
 function renderProductsGrid() {
-
     let productsHTML = '';
 
     updateCartQuantity();
 
-    products.forEach(product => {
+    const url = new URL(window.location.href);
+    const searchItem = url.searchParams.get('search');
+    let productsToShow = products;
+
+    if (searchItem) {
+        productsToShow = productsToShow.filter((product) => {
+            return product.name.toLowerCase().includes(searchItem);
+        });
+    }
+
+    productsToShow.forEach(product => {
         const { image, name, rating } = product;
         const { count } = rating;
         productsHTML += `
@@ -85,5 +95,13 @@ function renderProductsGrid() {
             addToCart(productId);
             updateCartQuantity();
         });
+    });
+}
+
+function processSearch() {
+    document.querySelector('.js-search-button')
+    .addEventListener('click', () => {
+        const searchString = document.querySelector('.js-search-bar').value;
+        window.location.href = `amazon.html?search=${searchString}`;
     });
 }
