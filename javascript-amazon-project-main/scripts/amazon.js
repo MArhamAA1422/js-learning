@@ -111,4 +111,12 @@ function processSearch() {
         const searchString = document.querySelector('.js-search-bar').value;
         window.location.href = `amazon.html?search=${searchString}`;
     });
+
+    document.querySelector('.js-search-bar')
+        .addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                const searchString = document.querySelector('.js-search-bar').value;
+                window.location.href = `amazon.html?search=${searchString}`;
+            }
+    });
 }
