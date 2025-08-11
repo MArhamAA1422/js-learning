@@ -54,7 +54,11 @@ function renderTrackingOrder() {
     const today = dayjs();
     const orderTime = dayjs(orderItem.orderTime);
     const deliveryTime = dayjs(productItemInOrder.estimatedDeliveryTime);
-    const percentageProgress = ((orderTime - today) / (deliveryTime - orderTime)) * 100;
+    const percentageProgress = ((today - orderTime) / (deliveryTime - orderTime)) * 100;
+  
+  // console.log(percentageProgress);
+  
+    const deliveryMessage = today < deliveryTime ? "Arriving on" : "Delivered on";
 
     let html = `
       <a class="back-to-orders-link link-primary" href="orders.html">
@@ -62,7 +66,7 @@ function renderTrackingOrder() {
       </a>
 
       <div class="delivery-date">
-        Arriving on ${date}
+        ${deliveryMessage} ${date}
       </div>
 
       <div class="product-info">
