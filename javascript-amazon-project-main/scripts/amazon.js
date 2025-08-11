@@ -17,12 +17,19 @@ function renderProductsGrid() {
     updateCartQuantity();
 
     const url = new URL(window.location.href);
-    const searchItem = url.searchParams.get('search');
+    let searchItem = url.searchParams.get('search');
     let productsToShow = products;
 
     if (searchItem) {
+        searchItem = searchItem.toLowerCase();
         productsToShow = productsToShow.filter((product) => {
-            return product.name.toLowerCase().includes(searchItem);
+            let matchingKeyword = false;
+
+            product.keywords.forEach(keyword => {
+                if (keyword.includes(searchItem)) matchingKeyword = true;
+            });
+
+            return product.name.toLowerCase().includes(searchItem) || matchingKeyword;
         });
     }
 
